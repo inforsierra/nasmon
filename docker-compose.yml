@@ -1,0 +1,14 @@
+services:
+  nasmon:
+    image: nasmon:0.3
+    container_name: nasmon
+    restart: unless-stopped
+    environment:
+      - PORT=8099
+      - TZ=Europe/Madrid
+      # Descomenta para pedir usuario y contraseña:
+      # - NASMON_USER=nasmon
+      # - NASMON_PASS=cambiaEstaClave
+    volumes:
+      - /volume1/docker/nasmon/data:/app/data
+    network_mode: host
